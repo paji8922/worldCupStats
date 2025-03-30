@@ -35,6 +35,7 @@ fig = px.choropleth(
 
 # initialize Dash app
 app = Dash(__name__)
+server = app.server
 
 # dropdown options that has all the countries
 countries = sorted(summary_df['Country'].tolist())
