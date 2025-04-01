@@ -22,7 +22,7 @@ runners_up = df['Runners-up'].value_counts().rename_axis('Country').reset_index(
 summary_df = pd.merge(wins, runners_up, on='Country', how='outer').fillna(0)
 summary_df['RunnerUps'] = summary_df['RunnerUps'].astype(int)
 
-# Create choropleth map
+# create choropleth map
 fig = px.choropleth(
     summary_df,
     locations="Country",
