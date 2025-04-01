@@ -14,6 +14,12 @@ df['Runners-up'] = df['Runners-up'].str.strip().str.replace('\xa0', ' ', regex=F
 df['Winners'] = df['Winners'].replace({'West Germany': 'Germany'})
 df['Runners-up'] = df['Runners-up'].replace({'West Germany': 'Germany'})
 
+# change England to United Kingdom so it can be recognized by the choropleth map
+df['Winners'] = df['Winners'].replace({'England': 'United Kingdom'})
+
+# change Czechoslovakia to Czechia so it can be recognized by the choropleth ma
+df['Runners-up'] = df['Runners-up'].replace({'Czechoslovakia': 'Czechia'})
+
 # count the total number of wins for each country
 wins = df['Winners'].value_counts().rename_axis('Country').reset_index(name='Wins')
 # count the total number of runner-up appearances for each country
